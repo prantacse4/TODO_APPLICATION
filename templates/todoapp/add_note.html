@@ -1,0 +1,86 @@
+{% extends 'todoapp/base.html' %}
+
+{% block title %}
+    Add Note
+{% endblock title %}
+
+
+{% block add_noteactive %}
+    active
+{% endblock add_noteactive %}
+    
+{% load static %}
+
+
+
+{% block bodycontent %}
+<!-- <section>
+    <div class="custom-card2">
+        <h5 class="text-white exapand_form" >নতুন নোট যোগ করুন</h5>
+    </div>
+
+</section> -->
+<!-- 
+<section class="myform">
+    <div class="custom-card ">
+        <h5 class=" text-white fullform"  >নতুন নোট যোগ করুন</h5>
+        <div class="">
+
+            {% if form.errors %}
+            <h5 class="my_alert_danger">{{form.errors.title}}</h5>  
+             {% endif %}
+
+          <form action="" method="POST">
+              {% csrf_token %}
+            <div class="form-group myformpadding">
+                
+                <label>শিরোনাম</label>
+                <input type="text" class="form-control" name="title" placeholder="শিরোনাম লিখুন">
+                <label class="mt-2">তথ্য</label>
+                <textarea name="note" id="" cols="10" rows="5" class="form-control" placeholder="নোট লিখুন"></textarea>
+                <input type="number" name="archive" value="0" class="hide">
+                <button class="btn btn-primary mt-2">যোগ করুন</button><span><a href="{% url 'home' %}" class="btn btn-info ml-2 mt-2">Refresh</a></span>
+            </div>
+          </form>
+          
+        </div> 
+      </div>
+</section> -->
+
+<section class="section1">
+    <div class="container section section1"><br>
+        <h5 class="text-center headinghome mb-3">নতুন নোট যোগ করুন</h5>
+        {% if form.errors %}
+            <h5 class="my_alert_danger">{{form.errors.title}}</h5>  
+         {% endif %}
+         
+         {% if success_msg %}
+            <h5 class="alert alert-success">{{ success_msg }}</h5>
+             
+         {% endif %}
+             
+        <div class="form-group">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label class="mt-3">শিরোনাম</label>
+                <input type="text" class="form-control textinput" name="title" placeholder="শিরোনাম লিখুন">
+                <label class="mt-3">তথ্য</label>
+                <textarea name="note" id="" cols="10" rows="5" class="form-control textinput" placeholder="নোট লিখুন"></textarea>
+                <input type="number" name="archive" value="0" class="hide">
+                <button class="btn btn-primary mt-4">যোগ করুন</button><span><a href="{% url 'add_note' %}" class="btn btn-info ml-2 mt-4">Refresh</a></span>
+            </div>
+            </form>
+        </div>
+
+    
+            
+        
+        
+    </div>
+
+
+</section>
+
+
+{% endblock bodycontent %}
+    

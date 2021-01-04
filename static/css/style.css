@@ -1,4 +1,193 @@
-.congo{
-    color:red;
-    font-size: 20px;
+*{
+    margin: 0;
+    padding: 0;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Hind Siliguri', sans-serif;
+
+}
+.bg-nav{
+    background:#1D5AB1 !important;
+}
+.titlelogo{
+font-family: 'Hind Siliguri', sans-serif;
+font-weight: 700;
+letter-spacing: 1px;
+color: white;
+font-size: 1.5rem;
+}
+.section1{
+    background: rgb(20, 15, 15);
+    color: white;
+    min-height: 100vh;
+    width: 100%;
+    margin-top: 0px;
+}
+.addbutton{
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+}
+.btn-custom{
+
+    border-radius: 4rem;
+    padding: 1.2rem;
+    color: #4e8adf;
+    border: 3px solid #4e8adf;
+    background-color:rgb(20, 15, 15); ;
+}
+
+.custom-card {
+    width: 20rem;
+    position: fixed;
+    bottom: 0rem;
+    right: 1rem;
+    cursor: pointer;
+    background: #2b373c;
+    opacity: 1 !important;
+    border: .05rem solid wheat;
+    box-shadow: -5px 12px 9px 11px rgba(0,0,0,.15);
+    border-radius: .5rem;
+    z-index: 1;
+    font-size: 1rem;
+}
+.custom-card2 {
+    width: 18rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    border: .09rem solid #e5e5e5;
+    text-align: center;
+    border-radius: .5rem;
+    padding: .6rem;
+    z-index: 1;
+    background: #2B373C;
+    color: white;
+    
+}
+.custom-card2:hover{
+    background: #31444d;
+}
+.invisible{
+    display: none;
+}
+.visible{
+    display: block;
+}
+.headinghome {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    width: 100%;
+    margin: 0 auto;
+    border: 2px solid white;
+    border-radius: .5rem;
+    padding: 1rem 0rem;
+}
+
+.all_notes_home {
+    border: 0.05rem solid #e5e5e5;
+    padding: 0px;
+    margin: 0px;
+    padding: .5rem;
+    margin: 1rem 0rem;
+    border-radius: .5rem;
+}
+.all_notes_home:hover{
+    background: #5f5d5d;
+    transition: all ease .3s;
+}
+.all_notes_home h5 a{
+    color: #fff7be;
+    font-size: 1.2rem;
+    padding: 0px;
+    margin: 0px;
+}
+.mydelete {
+    color: #ff4c4c;
+    margin-right: .4rem;
+    padding: 0rem;
+    background: none;
+    border: 0px;
+}
+.mydelete:hover{
+    text-decoration: underline;
+
+}
+.myarchive {
+    color: #f3b400;
+    margin-right: .4rem;
+    padding: 0rem;
+    background: none;
+    border: 0px;
+}
+.myarchive:hover{
+    text-decoration: underline;
+
+}
+
+.all_notes_home p{
+    text-align: right;
+}
+.marginrow{
+    margin: 0rem .5rem;
+}
+.card{
+    opacity: 1 !important;
+}
+.fullform {
+    margin: 0px;
+    padding: 0px;
+    background: #138496;
+    padding: 0.8rem;
+    border-radius: .5rem;
+}
+.myformpadding {
+    padding: 0rem 0.8rem;
+    color: wheat;
+    padding-top: 0.8rem;
+}
+.exapand_form {
+    padding: 0;
+    margin: 0;
+}
+
+.my_alert_danger {
+    color: #ff4c4c;
+    margin: 0px;
+    font-size: 1rem;
+    padding: .8rem;
+    padding-bottom: .1rem;
+    list-style: none;
+    margin: 0 auto;
+}
+.my_alert_danger li{
+    list-style: none;
+}
+
+.all_notes_home2 {
+    border: 0.05rem solid #e5e5e5;
+    padding: 0px;
+    margin: 0px;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: .5rem;
+    text-align: center;
+    background: #646464;
+}
+.hide{
+    display: none;
+}
+.textinput{
+    background-color: #262323;
+}
+.textinput:focus{
+    background-color: #8e8e8e;
+color: white;
 }

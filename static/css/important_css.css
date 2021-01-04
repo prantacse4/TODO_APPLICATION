@@ -1,0 +1,910 @@
+/**************************************
+***********   Starting CSS  ***********
+**************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #f37121;
+    --roboto: "Roboto", sans-serif;
+    --bggrad: linear-gradient(to bottom, #dd2476, #ff512f);
+    --bggrad2: linear-gradient(to right, #38ef7d, #11998e);
+}
+
+
+/**************************************
+**********   Starting Css End  *********
+**************************************/
+
+
+/* / */
+
+
+/**************************************
+*************   Preloader  *************
+**************************************/
+
+.spinner-wrapper {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    /* centers the loading animation vertically one the screen */
+    left: 50%;
+    /* centers the loading animation horizontally one the screen */
+    width: 3.75rem;
+    height: 1.25rem;
+    margin: -0.625rem 0 0 -1.875rem;
+    /* is width and height divided by two */
+    text-align: center;
+}
+
+.spinner>div {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    background-color: #00bfd8;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        -ms-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+
+/**************************************
+********** End   Preloader  **********
+**************************************/
+
+
+/**************************************
+************   ScrollToTop  ************
+**************************************/
+
+.scrollup {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease-in;
+    position: fixed;
+    bottom: .3rem;
+    right: 1.3rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 3rem;
+    justify-content: center;
+    background: #11998e;
+    background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
+    background: linear-gradient(to right, #38ef7d, #11998e);
+}
+
+.scrollup:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+.scrollup.scrollToTopactive {
+    z-index: 1;
+    bottom: .3rem;
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(-1rem);
+}
+
+
+/**************************************
+*********   ScrollToTop END  *********
+**************************************/
+
+
+/**************************************
+*********   Scroll Inside Div   *********
+**************************************/
+
+.scrollinsidediv {
+    background: white;
+    overflow-x: hidden;
+    height: 70%;
+    width: 70%;
+    padding: 2rem;
+    border-radius: 3px;
+    margin: auto 0;
+    overflow-y: scroll;
+}
+
+.scrollinsidediv p {
+    color: black;
+    font-weight: normal;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+
+/**************************************
+*******   Scroll Inside Div END  *******
+**************************************/
+
+
+/**************************************
+*************   Navigation  *************
+**************************************/
+
+.brandname {
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.navbar-custom {
+    background-color: #fff;
+    box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
+    font: 600 0.875rem/0.875rem "Raleway", sans-serif;
+    transition: all 0.2s;
+}
+
+.navbar-custom .navbar-brand.logo-image img {
+    width: 7.4375rem;
+    height: 2rem;
+}
+
+.navbar-custom .navbar-brand.logo-text {
+    font: 600 2rem/1.5rem "Raleway", sans-serif;
+    color: #393939;
+    text-decoration: none;
+}
+
+.navbar-custom .navbar-nav {
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.navbar-custom .nav-item .nav-link {
+    padding: 0.625rem 0.75rem 0.625rem 0.75rem;
+    color: #393939;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.navbar-custom .nav-item .nav-link:hover,
+.navbar-custom .nav-item .nav-link.active {
+    color: #00bfd8;
+}
+
+
+/* Dropdown Menu */
+
+.navbar-custom .dropdown:hover>.dropdown-menu {
+    display: block;
+    /* this makes the dropdown menu stay open while hovering it */
+    min-width: auto;
+    animation: fadeDropdown 0.2s;
+    /* required for the fade animation */
+}
+
+@keyframes fadeDropdown {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.navbar-custom .dropdown-toggle:focus {
+    /* removes dropdown outline on focus */
+    outline: 0;
+}
+
+.navbar-custom .dropdown-menu {
+    margin-top: 0;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #fff;
+}
+
+.navbar-custom .dropdown-item {
+    color: #393939;
+    text-decoration: none;
+}
+
+.navbar-custom .dropdown-item:hover {
+    background-color: #fff;
+}
+
+.navbar-custom .dropdown-item .item-text {
+    font: 600 0.875rem/0.875rem "Raleway", sans-serif;
+}
+
+.navbar-custom .dropdown-item:hover .item-text {
+    color: #00bfd8;
+}
+
+.navbar-custom .dropdown-items-divide-hr {
+    width: 100%;
+    height: 1px;
+    margin: 0.75rem auto 0.725rem auto;
+    border: none;
+    background-color: #c4d8dc;
+    opacity: 0.2;
+}
+
+
+/* end of dropdown menu */
+
+.navbar-custom .navbar-toggler {
+    border: none;
+    color: #393939;
+    font-size: 2rem;
+}
+
+.navbar-custom button[aria-expanded='false'] .navbar-toggler-awesome.fas.fa-times {
+    display: none;
+}
+
+.navbar-custom button[aria-expanded='false'] .navbar-toggler-awesome.fas.fa-bars {
+    display: inline-block;
+}
+
+.navbar-custom button[aria-expanded='true'] .navbar-toggler-awesome.fas.fa-bars {
+    display: none;
+}
+
+.navbar-custom button[aria-expanded='true'] .navbar-toggler-awesome.fas.fa-times {
+    display: inline-block;
+    margin-right: 0.125rem;
+}
+
+
+/* Min-width width 992px */
+
+@media (min-width: 992px) {
+    /* Navigation */
+    .navbar-custom {
+        padding: 2.125rem 1.5rem 2.125rem 2rem;
+        box-shadow: none;
+        background: transparent;
+    }
+    .navbar-custom .navbar-nav {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .navbar-custom .nav-item .nav-link {
+        padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+        color: #fff;
+        opacity: 0.8;
+    }
+    .navbar-custom .nav-item .nav-link:hover,
+    .navbar-custom .nav-item .nav-link.active {
+        color: #fff;
+        opacity: 1;
+    }
+    .navbar-custom.top-nav-collapse {
+        padding: 0.5rem 1.5rem 0.5rem 2rem;
+        box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
+        background-color: #1D5AB1;
+    }
+    .navbar-custom.top-nav-collapse .nav-item .nav-link {
+        color: #eeeeee;
+        opacity: 1;
+    }
+    .navbar-custom.top-nav-collapse .nav-item .nav-link:hover,
+    .navbar-custom.top-nav-collapse .nav-item .nav-link.active {
+        color: white;
+    }
+    .navbar-custom .dropdown-menu {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-top: 0.75rem solid rgba(0, 0, 0, 0);
+        border-radius: 0.25rem;
+    }
+    .navbar-custom.top-nav-collapse .dropdown-menu {
+        border-top: 0.5rem solid rgba(0, 0, 0, 0);
+        box-shadow: 0 0.375rem 0.375rem 0 rgba(0, 0, 0, 0.02);
+    }
+    .navbar-custom .dropdown-item {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+    .navbar-custom .dropdown-items-divide-hr {
+        width: 84%;
+    }
+    /* end of navigation */
+}
+
+@media (max-width:995px) {
+    .brandname {
+        font-weight: 800;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: black !important;
+    }
+}
+
+
+/**************************************
+**********  End Navigation  ***********
+**************************************/
+
+
+/**************************************
+************  CounterUp  *************
+**************************************/
+
+.numbers {
+    padding: 40px 0;
+    background: #0091ea;
+}
+
+.flexdisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.numbers .number-item {
+    width: 12%;
+    padding: 20px;
+    text-align: center;
+    margin: 14px;
+    border-radius: 6px;
+    font-size: 1.4em;
+    color: white;
+    background: #de6161;
+    background: -webkit-linear-gradient(to right, #2657eb, #de6161);
+    background: linear-gradient(to right, #2657eb, #de6161);
+    box-shadow: 0px 14px 22px -18px rgba(0, 0, 0, 0.72);
+}
+
+.numbers .number-item h2 {
+    font-weight: 500;
+}
+
+.numbers .number-item h6 {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+
+/**************************************
+**********  CounterUp End  ***********
+**************************************/
+
+
+/**************************************
+**************  SkillBar  ***************
+**************************************/
+
+.skillbarsec {
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10rem;
+    background-color: #2e2e2e;
+}
+
+.progress-bar {
+    margin: 20px 0 10px;
+    overflow: hidden;
+    background: none;
+}
+
+.progress-title-holder {
+    padding-bottom: 7px;
+    position: relative;
+    margin: 5px 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 2e;
+    line-height: 15px;
+    font-weight: 400;
+    color: white;
+}
+
+.progress-title {
+    z-index: 100;
+    font-weight: bold;
+}
+
+.progress-number-wrapper {
+    width: 100%;
+    z-index: 10;
+}
+
+.progress-number-mark {
+    margin-bottom: 4px;
+    border-radius: 3px;
+    background-color: crimson;
+    padding: 0 8px;
+    position: absolute;
+    bottom: 0;
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+.progress-number-wrapper,
+.progress-number-mark {
+    font-family: Open Sans, sans-serif;
+    font-size: 11px;
+    line-height: 24px;
+    height: 24px;
+    letter-spacing: 0px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: none;
+    color: #ffffff;
+}
+
+.down-arrow {
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 3px solid crimson;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+.progress-content-outter {
+    height: 12px;
+    background-color: white;
+}
+
+.progress-content {
+    height: 21px;
+    background-color: crimson;
+    width: 0%;
+}
+
+
+/**************************************
+**********  SkillBar End  ***********
+**************************************/
+
+
+/**************************************
+*********  ScollToAnimation   *********
+**************************************/
+
+.scrollanimation {
+    min-height: 100vh;
+}
+
+.cardsample {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.c {
+    margin-bottom: 3rem;
+}
+
+.c {
+    opacity: 0;
+    -moz-transition: all 700ms ease-out;
+    -webkit-transition: all 700ms ease-out;
+    -o-transition: all 700ms ease-out;
+    transition: all 900ms ease-out;
+    -moz-transform: translate3d(0px, 200px, 0px);
+    -webkit-transform: translate3d(0px, 200px, 0px);
+    -o-transform: translate(0px, 200px);
+    -ms-transform: translate(0px, 200px);
+    transform: translate3d(0px, 200, 0px);
+    backface-visibility: hidden;
+}
+
+.canimate {
+    opacity: 1;
+    -moz-transform: translate3d(0px, 0px, 0px);
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    -o-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.cardsample h2 {
+    padding: 2rem;
+    font-size: 2rem;
+    color: #0091ea;
+    font-weight: 700;
+}
+
+.cardsample p {
+    margin: 1rem;
+    text-align: justify;
+    margin-bottom: 2rem;
+}
+
+.cardsample a {
+    margin-bottom: 3rem !important;
+    margin-left: 1rem;
+    padding: 1rem;
+    border: 1px solid #0091ea;
+    border-radius: .5rem;
+}
+
+
+/**************************************
+*******  ScollToAnimation End  *******
+**************************************/
+
+
+/**************************************
+**************  Marquee  **************
+**************************************/
+
+.footer {
+    height: 100vh;
+    padding-top: 5vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marquee {
+    background-color: crimson;
+    color: white;
+}
+
+
+/**************************************
+************  MArquee End  ************
+**************************************/
+
+
+/**************************************
+************  Slick Slider ************
+**************************************/
+
+
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slick-track:before,
+.slick-track:after {
+    display: table;
+    content: '';
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+
+.slick-slide img {
+    display: block;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+
+/**************************************
+**********  Slick Slider End **********
+**************************************/
+
+
+/**************************************
+********  Slick Slider Example ********
+**************************************/
+
+
+/* Slider One */
+
+.slicksliderexample {
+    position: relative;
+}
+
+.slicks {
+    height: 70vh;
+}
+
+.slick_s1 {
+    background: #f37121;
+}
+
+.slick_s2 {
+    background: #1d2d50;
+}
+
+.slick_s3 {
+    background: #7d0633;
+}
+
+.slick_s4 {
+    background: #ff8e6e;
+    transition: .2s ease-in;
+}
+
+.slick_s5 {
+    background: #2d4059;
+}
+
+.site-slider {
+    position: relative;
+}
+
+.position-top {
+    position: absolute;
+    top: 50%;
+}
+
+.slicksliderexample .slider-btn .prev,
+.slicksliderexample .slider-btn .next {
+    background-color: var(--primary-color);
+    padding: 1rem 1.5rem;
+    border-radius: 10rem;
+    color: white;
+    margin: 1rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+    top: 40%;
+}
+
+.slicksliderexample:hover .slider-btn .prev,
+.slicksliderexample:hover .slider-btn .next {
+    opacity: 1;
+    z-index: 1111;
+}
+
+
+/* Slick Dots */
+
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 1rem 0;
+    position: absolute;
+    list-style-type: none;
+    bottom: 0;
+    right: 45%;
+}
+
+.slick-dots li {
+    margin: 0 0.6rem;
+}
+
+.slick-dots button {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    border: none;
+    background-color: white;
+    text-indent: -99999px;
+    border-radius: 100%;
+}
+
+.slick-dots li.slick-active button {
+    transform: scale(2.5);
+    box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, .5);
+}
+
+
+/* Slider One End */
+
+
+/*Slider two */
+
+.sliderexample2 {
+    min-height: 100vh;
+    background-color: grey;
+    padding-top: 100px;
+}
+
+.position-top {
+    position: absolute;
+    top: 35%;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.left-0 {
+    left: 0;
+}
+
+.site-slider-two {
+    position: relative;
+    height: 40%;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 3rem;
+}
+
+.site-slider-two .product {
+    position: relative;
+    overflow: hidden;
+}
+
+.site-btn.btn-span {
+    padding: 0.8rem 1.9rem;
+    border-radius: 4rem;
+    border: 1px solid var(--border);
+    background-color: white;
+    color: var(--light-gray);
+}
+
+.slider-two .slick-track .product:hover span {
+    background-color: var(--primary-color);
+    color: white;
+    transition: .4s ease-out;
+}
+
+.radiv {
+    border: .2rem solid white;
+    padding: .1rem;
+    padding-bottom: 0.7rem;
+    border-radius: 1rem;
+    height: 15rem;
+    background: darkslategray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contains {
+    margin: 0 !important;
+}
+
+
+/* Slider Two End */
+
+
+/**************************************
+******  Slick Slider Example End ******
+**************************************/

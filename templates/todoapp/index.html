@@ -3,11 +3,109 @@
 {% block title %}
     Home
 {% endblock title %}
+
+
+{% block homeactive %}
+    active
+{% endblock homeactive %}
     
+{% load static %}
 
 
 
 {% block bodycontent %}
-    <h1 class="congo">Congratulations</h1>
+<section>
+    <div class="custom-card2">
+        <h5 class="text-white exapand_form" >নতুন নোট যোগ করুন</h5>
+    </div>
+
+</section>
+
+<section class="myform">
+    <div class="custom-card ">
+        <h5 class=" text-white fullform"  >নতুন নোট যোগ করুন</h5>
+        <div class="">
+
+            {% if form.errors %}
+            <h5 class="my_alert_danger">{{form.errors.title}}</h5>  
+             {% endif %}
+
+          <form action="" method="POST">
+              {% csrf_token %}
+            <div class="form-group myformpadding">
+                
+                <label>শিরোনাম</label>
+                <input type="text" class="form-control" name="title" placeholder="শিরোনাম লিখুন">
+                <label class="mt-2">তথ্য</label>
+                <textarea name="note" id="" cols="10" rows="5" class="form-control" placeholder="নোট লিখুন"></textarea>
+                <input type="number" name="archive" value="0" class="hide">
+                <button class="btn btn-primary mt-2">যোগ করুন</button><span><a href="{% url 'home' %}" class="btn btn-info ml-2 mt-2">Refresh</a></span>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+</section>
+
+<section class="section1">
+    <div class="container section section1"><br>
+        <h5 class="text-center headinghome mb-3">আপনার নোট করা সকল কিছু</h5>
+
+        
+        {% if notesdata %}
+        <div class="row marginrow">
+
+            {% for notesdata in notesdata %}
+                
+                {% if 0 == notesdata.archive %}
+                <div class="col-md-6 col-sm-12 ">
+
+                    <div class="all_notes_home">
+                        <h5><a href="">{{notesdata.title}}</a></h5>
+                        <div class="text-right">
+                            <p class="d-inline text-right">
+                                <form action="{% url 'archive_data' notesdata.id %}" method="POST" class="d-inline">
+                                    {% csrf_token %}
+                                    <input type="number" value="1" class="hide" name="archive">
+                                    <button class="myarchive">আর্কাইভ</button>
+                                </form>
+                                <span><form action="{% url 'delete_data' notesdata.id %}" method="POST" class="d-inline">{% csrf_token %}
+                                    <button class="mydelete">ডিলেট</button>
+                                </form></span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                
+            
+                {% endif %}
+                    
+            {% endfor %}
+            
+            
+            {% if 0 == all_work_count %}
+            <div class="container">
+                <h5 class="all_notes_home2">এখানে কোনো তথ্য নেই। কিছু তথ্য আর্কাইভ এ রেখেছেন</h5>
+            </div>
+            {% endif %}
+                
+
+                
+        </div>
+        {% else %}
+        <div class="container">
+            <h5 class="all_notes_home2">এখানে কোনো তথ্য নেই।</h5>
+        </div>
+        {% endif %}
+            
+        
+        
+    </div>
+
+
+</section>
+
+
 {% endblock bodycontent %}
     
