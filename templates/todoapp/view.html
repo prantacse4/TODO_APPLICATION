@@ -1,0 +1,115 @@
+{% extends 'todoapp/base.html' %}
+
+{% block title %}
+    Home | View
+{% endblock title %}
+
+
+{% block homeactive %}
+    active
+{% endblock homeactive %}
+    
+{% load static %}
+
+
+
+{% block bodycontent %}
+<section>
+    <div class="custom-card2">
+        <h5 class="text-white exapand_form2" >নোট আপডেট করুন</h5>
+    </div>
+
+</section>
+<section class="myform2">
+    <div class="custom-card ">
+        <h5 class=" text-white fullform2"  >নোট আপডেট করুন</h5>
+        <div class="">
+
+            {% if form.errors %}
+            <h5 class="my_alert_danger">{{form.errors.title}}</h5>  
+             {% endif %}
+
+          <form action="" method="POST">
+              {% csrf_token %}
+            <div class="form-group myformpadding">
+                
+                <label>শিরোনাম</label>
+                <input type="text" class="form-control minimized_form" name="title" placeholder="শিরোনাম লিখুন" value="{{notesdata.title}}" readonly>
+                <label class="mt-2">তথ্য</label>
+                <textarea name="note" id="" cols="10" rows="5" class="form-control minimized_form2" placeholder="নোট লিখুন" >{{notesdata.note}}</textarea>
+                <input type="number" name="archive" value="0" class="hide">
+                <input type="text" class="form-control datePicker hide" name="date" > 
+                <button class="btn btn-primary mt-2">আপডেট করুন</button><span><a href="{% url 'home' %}" class="btn btn-info ml-2 mt-2">হোমে যান</a></span>
+            </div>
+          </form> 
+          
+        </div>
+      </div>
+</section>
+
+
+
+<section class="section1">
+    <div class="container section section1"><br>
+        <h5 class="text-center headinghome mb-3">আপনার নোট করা সকল কিছু</h5>
+
+        <div class="row marginrow">
+
+
+                <div class="col-md-12 col-sm-12 ">
+
+                    <div class="all_notes_home3">
+                        <p class="datetext text-right">{{notesdata.date}}</p>
+                        <h5 class="viewtitle">{{notesdata.title}}</h5>
+                        <p class="viewtext">{{notesdata.note}}</p>
+                        <div class="text-right">
+                            <p class="d-inline text-right">
+                                <span><form action="{% url 'delete_data' notesdata.id %}" method="POST" class="d-inline">{% csrf_token %}
+                                    <button class="mydelete viewbutton">ডিলেট</button>
+                                </form></span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                
+            
+            
+            
+        
+                
+
+                
+        </div>
+ 
+        
+        
+    </div>
+
+
+</section>
+
+
+{% endblock bodycontent %}
+    
+
+{% block script %}
+    <script>
+          const myform2 = document.querySelector(".myform2");
+            myform2.classList.add("invisible");
+            $(document).ready(function(){
+                        $(".fullform2").click(function(){
+                            myform2.classList.remove("visible");
+                            myform2.classList.remove("invisible");
+                            myform2.classList.add("invisible");
+                            
+                        });
+                        $(".exapand_form2").click(function(){
+                            myform2.classList.remove("invisible");
+                            myform2.classList.add("visible");
+                        });
+
+            });
+    </script>
+{% endblock script %}
+    

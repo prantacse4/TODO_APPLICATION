@@ -7,4 +7,4 @@ from .models import Notes
 
 @admin.register(Notes)
 class NotesAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'note', 'archive')
+    list_display = ('id', 'title', 'note', 'archive', 'date')

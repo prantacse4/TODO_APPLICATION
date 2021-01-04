@@ -34,21 +34,11 @@ $(window).on('load', function() {
 //            ScrollToTop END
 // ***************************
 
-const myform = document.querySelector(".myform");
-myform.classList.add("visible");
+  var now = new Date();
+  var today = now.getDate()  + '/' + (now.getMonth() + 1) + '/' + now.getFullYear();
+  $('.datePicker').val(today);
+  
 
-$(document).ready(function(){
-    $(".fullform").click(function(){
-        myform.classList.remove("visible");
-        myform.classList.remove("invisible");
-        myform.classList.add("invisible");
-        
-    });
-    $(".exapand_form").click(function(){
-        myform.classList.remove("invisible");
-        myform.classList.add("visible");
-    });
-  });
 
 // $("#fullform").click(function formInvisible() { 
 
@@ -216,9 +206,14 @@ $(document).ready(function(){
 // *******************************
 //          Current Year
 // *******************************
-var d = new Date();
-var n = d.getFullYear();
+// var d = new Date();
+// var n = d.getFullYear();
 // document.getElementById("year").innerHTML = n;
+
+// var d = new Date();
+// var strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
+
+
 // *******************************
 //          Current Year End
 // *******************************

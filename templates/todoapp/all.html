@@ -1,0 +1,72 @@
+{% extends 'todoapp/base.html' %}
+
+{% block title %}
+    All
+{% endblock title %}
+
+
+{% block allactive %}
+    active
+{% endblock allactive %}
+    
+{% load static %}
+
+
+
+{% block bodycontent %}
+
+<section class="section1">
+    <div class="container section section1"><br>
+        <h5 class="text-center headinghome mb-3">আপনার নোট করা সকল কিছু</h5>
+
+        
+        {% if notesdata %}
+        <div class="row marginrow">
+
+            {% for notesdata in notesdata %}
+                
+
+                <div class="col-md-6 col-sm-12 ">
+
+                    <div class="all_notes_home">
+                        <p class="datetext">{{ notesdata.date }}</p>
+
+                        <h5><a href="{% url 'view_update' notesdata.id %}">{{notesdata.title}}</a></h5>
+                        <div class="text-right">
+                            <p class="d-inline text-right">
+
+                                <span><form action="{% url 'all_delete_data' notesdata.id %}" method="POST" class="d-inline">{% csrf_token %}
+                                    <button class="mydelete">ডিলেট</button>
+                                </form></span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                
+            
+
+                    
+            {% endfor %}
+            
+
+                
+
+                
+        </div>
+        {% else %}
+        <div class="container">
+            <h5 class="all_notes_home2">কোনো নোট নেই। </h5>
+        </div>
+        {% endif %}
+            
+        
+        
+    </div>
+
+
+</section>
+
+
+{% endblock bodycontent %}
+    

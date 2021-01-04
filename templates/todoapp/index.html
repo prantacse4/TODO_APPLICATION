@@ -20,7 +20,6 @@
     </div>
 
 </section>
-
 <section class="myform">
     <div class="custom-card ">
         <h5 class=" text-white fullform"  >নতুন নোট যোগ করুন</h5>
@@ -35,10 +34,11 @@
             <div class="form-group myformpadding">
                 
                 <label>শিরোনাম</label>
-                <input type="text" class="form-control" name="title" placeholder="শিরোনাম লিখুন">
+                <input type="text" class="form-control minimized_form2" name="title" placeholder="শিরোনাম লিখুন">
                 <label class="mt-2">তথ্য</label>
-                <textarea name="note" id="" cols="10" rows="5" class="form-control" placeholder="নোট লিখুন"></textarea>
+                <textarea name="note" id="" cols="10" rows="5" class="form-control minimized_form2" placeholder="নোট লিখুন"></textarea>
                 <input type="number" name="archive" value="0" class="hide">
+                <input type="text" class="form-control datePicker hide" name="date" >
                 <button class="btn btn-primary mt-2">যোগ করুন</button><span><a href="{% url 'home' %}" class="btn btn-info ml-2 mt-2">Refresh</a></span>
             </div>
           </form>
@@ -51,7 +51,6 @@
     <div class="container section section1"><br>
         <h5 class="text-center headinghome mb-3">আপনার নোট করা সকল কিছু</h5>
 
-        
         {% if notesdata %}
         <div class="row marginrow">
 
@@ -61,7 +60,8 @@
                 <div class="col-md-6 col-sm-12 ">
 
                     <div class="all_notes_home">
-                        <h5><a href="">{{notesdata.title}}</a></h5>
+                        <p class="datetext">{{ notesdata.date }}</p>
+                        <h5><a href="{% url 'view_update' notesdata.id %}">{{notesdata.title}}</a></h5>
                         <div class="text-right">
                             <p class="d-inline text-right">
                                 <form action="{% url 'archive_data' notesdata.id %}" method="POST" class="d-inline">
@@ -108,4 +108,33 @@
 
 
 {% endblock bodycontent %}
+    
+
+{% block script %}
+    <script>
+        
+const myform = document.querySelector(".myform");
+myform.classList.add("visible");
+
+
+$(document).ready(function(){
+    $(".fullform").click(function(){
+        myform.classList.remove("visible");
+        myform.classList.remove("invisible");
+        myform.classList.add("invisible");
+        
+    });
+
+    $(".exapand_form").click(function(){
+        myform.classList.remove("invisible");
+        myform.classList.add("visible");
+    });
+
+
+
+
+  });
+
+    </script>
+{% endblock script %}
     

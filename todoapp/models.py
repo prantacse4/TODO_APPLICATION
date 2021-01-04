@@ -6,3 +6,4 @@ class Notes(models.Model):
     title = models.CharField(max_length=254)
     note = models.TextField()
     archive = models.IntegerField(default='0')
+    date = models.CharField( max_length=50)
