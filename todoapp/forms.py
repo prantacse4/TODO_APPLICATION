@@ -3,10 +3,21 @@ from django import forms
 from todoapp.models import Notes
 from django.core.exceptions import ValidationError
 
+#LoginSignup
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+
+class UserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields =[ 'username', 'email', 'password1', 'password2']
+
+
 class NoteRegistration(forms.ModelForm):
     class Meta:
         model = Notes
-        fields = ['title', 'note', 'archive', 'date']
+        fields = [ 'title', 'note', 'archive', 'date']
 
     def clean_title(self):
         title = self.cleaned_data.get('title')

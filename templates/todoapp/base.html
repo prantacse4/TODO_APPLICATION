@@ -34,6 +34,9 @@
             </div>
         </div>
         <!-- end of preloader -->
+
+
+        
     
 
         <nav class="navbar navbar-expand-md navbar-dark bg-nav">
@@ -80,6 +83,18 @@
     {% block bodycontent %}
         
     {% endblock bodycontent %}
+    <div>
+        <div class="authuser authuserst">
+            <h5>{{request.user}}</h5>
+        </div>
+        <div class="authuser2 authuserst">
+            <h5>{{request.user}}</h5>
+        </div>
+        <div class="logoutauth">
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
@@ -91,7 +106,32 @@
 {% block script %}
     
 {% endblock script %}
-    
+<script>
+            const logoutauth = document.querySelector(".logoutauth");
+            const authuser = document.querySelector(".authuser");
+            const authuser2 = document.querySelector(".authuser2");
+            logoutauth.classList.add("invisible");
+            authuser2.classList.add("invisible");
+            $(document).ready(function(){
+                        $(".authuser").click(function(){
+                            logoutauth.classList.remove("visible");
+                            logoutauth.classList.remove("invisible");
+                            logoutauth.classList.add("visible");
+                            authuser2.classList.remove("invisible");
+                            authuser.classList.add("invisible");
+                            
+                        });
+                        $(".authuser2").click(function(){
+                            logoutauth.classList.remove("visible");
+                            logoutauth.classList.add("invisible");
+                            authuser2.classList.add("invisible");
+                            authuser.classList.remove("invisible");
+
+
+                        });
+
+            });
+</script>
     
 </body>
 </html>

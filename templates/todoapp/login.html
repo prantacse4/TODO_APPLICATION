@@ -1,19 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Login</title>
-</head>
-<body>
-login
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
-</body>
-</html>
+{% extends 'todoapp/baselogin.html' %}
+
+
+{% block title %}
+    Login
+{% endblock title %}
+    
+{% block bodycontent %}
+    
+    <section>
+        <div class="authenticationpage">
+            <div class="form-group card card-body mycardlogin">
+                <h5 class="card-header text-center">লগিন করুন </h5>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    
+                    {% for message in messages %}
+                        <div class="alert alert-warning"><p>{{message}}</p></div>
+                    {% endfor %}
+                        
+                    <label class="mt-3">ইউজার নেম</label> 
+                    <input type="text" class="form-control" name="username" placeholder="Username">
+
+                    <label class="mt-3">পাসওয়ার্ড</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+
+                    <button class="btn btn-success mt-3">লগিন</button><span><a href="{% url 'registerpage' %}" class="btn btn-info mt-3 ml-2">রেজিস্টার</a></span>
+                    <br><br><a href="https://web.facebook.com/angrypranta/" class="mt-5">পাসওয়ার্ড ভুলে গেছেন?</a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock bodycontent %}
+    

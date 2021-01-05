@@ -51,11 +51,16 @@
 
 </section>
 
+
+
+{% endblock bodycontent %}
+    
+
+{% block script %}
 <script>
     var now = new Date();
     var today = now.getDate()  + '/' + (now.getMonth() + 1) + '/' + now.getFullYear();
     $('.datePicker').val(today);
 </script>
-
-{% endblock bodycontent %}
+{% endblock script %}
     
