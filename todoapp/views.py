@@ -135,6 +135,15 @@ def view_update(request, id):
     else:
         u_id = Notes.objects.get(pk=id)
         myform = NoteRegistrationUpdate(instance=u_id)
-    # notesdata = Notes.objects.get(pk=id)
-    # diction={'notesdata':notesdata}
     return render(request, 'todoapp/view.html', context=diction)
+
+
+
+
+def loginpage(request):
+    diction = {}
+    return render(request, 'todoapp/login.html', context=diction)
+
+def registerpage(request):
+    diction = {}
+    return render(request, 'todoapp/register.html', context=diction)

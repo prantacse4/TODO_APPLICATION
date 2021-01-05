@@ -14,4 +14,9 @@ urlpatterns = [
     path('unarchive/<int:id>/', views.unarchive, name="unarchive_data"),
     path('view/<int:id>/', views.view_update, name="view_update"),
 
+    path('login/', views.loginpage, name="loginpage"),
+    path('register/', views.registerpage, name="registerpage"),
+
+
+
 ]
