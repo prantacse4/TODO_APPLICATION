@@ -1,0 +1,63 @@
+{% extends 'todoapp/base.html' %}
+
+{% block title %}
+    Copyright
+{% endblock title %}
+
+
+{% block copyrightactive %}
+    active
+{% endblock copyrightactive %}
+    
+{% load static %}
+
+
+
+{% block bodycontent %}
+
+
+
+<section>
+
+        <div class="copyrightdiv">
+            <div class="card copycard myc">
+                <h5 class="card-header cd">সফটওয়ার এর ডেভেলপার এবং ডিজাইনার</h5>
+
+                <div class="card-details ">
+                    <p class="cname ">Pranta Kumar Biswas</p>
+                    <p>Undergraduate Student</p>
+                    <p>Session: 2016-17</p>
+                    <p><strong>Expeirence: </strong>Django, Laravel, Php, VueJs, jQuery, Javascript, SQLite, MySQL, Design Patterns etc.</p>
+                    <p>pranta.kumar.biswas@gmail.com</p>
+                    <p>Department of Computer Science & Engineering</p>
+                    <p>University of Barishal</p>
+
+                   
+                </div>
+                <div class="card-footer text-center ">
+                    <div class="mycard-footer">
+                        <a href="https://www.facebook.com/angrypranta/" target=”_blank”>Facebook</a><span><a href="https://www.instagram.com/pranta.kumar.biswas/" target=”_blank”>Instagram</a><a href="https://twitter.com/pranta_k_biswas" target=”_blank”>Twitter</a><a href="https://bd.linkedin.com/in/pranta-kumar-biswas" target=”_blank”>LinkedIn</a></span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+            
+        
+        
+
+
+</section>
+
+
+
+<div class="deleteaccount">
+    <form action="{% url 'delete_my_account' %}" method="POST">
+        {% csrf_token %}
+        <button class="btn btn-danger">Delete My Account</button>
+    </form>
+</div>
+{% endblock bodycontent %}
+    
+

@@ -40,7 +40,7 @@
     
 
         <nav class="navbar navbar-expand-md navbar-dark bg-nav">
-            <a href="{% url 'home' %}" class="navbar-brand titlelogo">পাইথন ওয়েব নোটবুক (প্রান্ত)</a>
+            <a href="{% url 'home' %}" class="navbar-brand titlelogo">পাইথন ওয়েব নোটবুক</a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -68,7 +68,11 @@
                         
                     {% endblock archivepageactive %}
                          ">আর্কাইভ</a>
-                    <a href="#" class="nav-item nav-link">ব্যাবহারবিধি</a>
+                    <a href="{% url 'copyright' %}" class="nav-item nav-link 
+                    {% block copyrightactive %}
+                        
+                    {% endblock copyrightactive %}
+                        ">কপিরাইট</a>
 
                 </div>
                 

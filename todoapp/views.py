@@ -65,10 +65,28 @@ def loginpage(request):
         return render(request, 'todoapp/login.html', context=diction)
 
 
+
+@login_required(login_url='loginpage')
 def logoutUser(request):
     logout(request)
     return HttpResponseRedirect('/login')
 
+
+@login_required(login_url='loginpage')
+def delete_my_account(request):
+    if request.method == 'POST':
+        userdata = request.user.id
+        del_id = User.objects.get(id=userdata)
+        del_id.delete()
+        logout(request)
+        return HttpResponseRedirect('/')
+
+
+#Copyright
+@login_required(login_url='loginpage')
+def copyright(request):
+    diction={}
+    return render(request, 'todoapp/copyright.html', context=diction)
 
 
 @login_required(login_url='loginpage')
